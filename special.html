@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet/less" href="less/base.less"/>
+    <link rel="stylesheet/less" href="less/special.less"/>
+    <script src="lib/less/less.js"></script>
+</head>
+<body>
+<!--容器-->
+<div id="youlu">
+    <div class="top">
+        <a href="index.html"> <i class="glyphicon glyphicon-chevron-left"></i></a>
+        <h3>专题列表</h3>
+    </div>
+
+    <div class="current">
+        <div class="container">
+            <!--<div class="special">-->
+                <!--<a href="http://www.itcast.cn/subject/phoneweb/index.html">-->
+                    <!--<img src="http://ofv795nmp.bkt.clouddn.com/topics0.jpg" alt=""/>-->
+                <!--</a>-->
+                <!--<p>2016年七月新番</p>-->
+            <!--</div>-->
+        </div>
+
+    </div>
+</div>
+
+</body>
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="js/template-web.js"></script>
+
+<!--模板引擎-->
+<script type="text/html" id="mediel">
+
+    {{each modes}}
+
+    <div class="special">
+        <a href="{{$value.url}}">
+            <img src="{{$value.img}}" alt=""/>
+        </a>
+        <p>{{$value.title}}</p>
+    </div>
+
+    {{/each}}
+</script>
+
+<script>
+    $.ajax({
+        url:'http://127.0.0.1:9091/api/gettopics',
+        success:function(data){
+//            console.log(data);
+            $('.container').append(template('mediel',{
+                modes:data
+            }));
+        }
+    })
+</script>
+</html>

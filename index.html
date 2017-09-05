@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>红旅动漫</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="./lib/Swiper/css/swiper.css"/>
+    <link rel="stylesheet/less" href="./less/base.less"/>
+    <link rel="stylesheet/less" href="./less/index.less"/>
+    <script src="lib/less/less.js"></script>
+</head>
+    <!--整体容器-->
+    <div id="vessel">
+
+        <!-- 状态栏区域-->
+        <div id="state" class="clearfix">
+            <!-- 菜单按钮-->
+            <div class="menu">
+                <a href="#" class="select" data-toggle="modal" data-target="#myModal">
+                    <span>—</span>
+                    <span>—</span>
+                    <span>—</span>
+                </a>
+
+            </div>
+            <h3>红旅动漫</h3>
+            <i class="glyphicon glyphicon-search"></i>
+        </div>
+
+        <!-- 轮播图区域-->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!--<div class="swiper-slide">-->
+                        <!--<a href="#">-->
+                        <!--<img src="http://ofv795nmp.bkt.clouddn.com/lunbo1.jpg" alt=""/>-->
+                         <!--<span class="share">-->
+                             <!--每个月都来给红旅打赏下吧-->
+                         <!--</span>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        <!-- tab栏切换-->
+        <div id="switchover">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">新增连载</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">新增完结</a></li>
+                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">推荐连载</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">推荐完结</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <ul class="chove  clearfix">
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<img src="http://ofv795nmp.bkt.clouddn.com/image10.jpg" alt=""/>-->
+                            <!--<p>连载至12集</p>-->
+                        <!--</a>-->
+                        <!--<p>灵能百分百</p>-->
+                    <!--</li>-->
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="profile">
+                    <ul class="chove  clearfix">
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="messages">
+                    <ul class="chove  clearfix">
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="settings">
+                    <ul class="chove  clearfix">
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Button trigger modal -->
+        <!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">-->
+            <!--Launch demo modal-->
+        <!--</button>-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <!--<div class="modal-dialog" role="document">-->
+                <!--<div class="modal-content">-->
+                    <!--<div class="modal-header">-->
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                        <!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
+                    <!--</div>-->
+                    <!--<div class="modal-body">-->
+                        <!--...-->
+                    <!--</div>-->
+                    <!--<div class="modal-footer">-->
+                        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <div class="modie">
+                <div class="modie-top">
+                    <i class="glyphicon glyphicon-chevron-left  tiao"></i>
+                    <h3>红旅动漫</h3>
+                    <i class="glyphicon glyphicon-search"></i>
+                </div>
+                <div class="modie-center">
+                    <ul>
+                        <li><a href="./serialize.html">连载动漫<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                        <li><a href="./special.html">专题列表<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                        <li><a href="#">关于<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="lib/Swiper/js/swiper.jquery.js"></script>
+<script src="js/template-web.js"></script>
+<script src="js/index.js"></script>
+
+<!--轮播图模板-->
+<script type="text/html" id="slide">
+    {{each datas}}
+    <div class="swiper-slide">
+        <a href="{{$value.url}}">
+            <img src="{{$value.img}}" alt=""/>
+            <span class="share">{{$value.title}}</span>
+        </a>
+    </div>
+    {{/each}}
+</script>
+
+<!--tab栏模板-->
+<script type="text/html" id="cut">
+{{each cuts}}
+
+<li>
+    <a href="{{$value.url}}">
+        <img src="{{$value.img}}" alt=""/>
+        <p>{{$value.update}}</p>
+    </a>
+    <p>{{$value.name}}</p>
+</li>
+{{/each}}
+</script>
+</html>
